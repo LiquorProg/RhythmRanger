@@ -8,7 +8,7 @@ from config import config
 
 intents = discord.Intents.all()
 
-bot = commands.Bot(command_prefix='!', intents=intents)
+bot = commands.Bot(command_prefix=config["prefix"], intents=intents)
 
 # Создаем пустую очередь треков
 queue_of_music = deque()
@@ -121,4 +121,4 @@ async def queue(ctx):
         await ctx.send(f"Очередь песен:\n{queue_list}")
 
 if __name__ == "__main__":
-    bot.run("MTEwMzMzMTA5NTg5MTY5MzY1MQ.G-VPd6.D0SLWEC9S95UQcAJgD0tZor2t3NqL7tJ0uF9vA")
+    bot.run(config["token"])
