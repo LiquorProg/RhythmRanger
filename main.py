@@ -3,6 +3,7 @@ import random
 import discord
 import asyncio
 from pytube import YouTube
+from youtubesearchpython import VideosSearch
 from collections import deque
 from discord.ext import commands
 from config import config
@@ -31,20 +32,33 @@ async def leave(ctx):
     await ctx.voice_client.disconnect()
 
 @bot.command()
-async def play(ctx, url):
+async def play(ctx, *url_or_name):
     channel = ctx.author.voice.channel
     voice_client = ctx.voice_client
+
+    url = " ".join(url_or_name)
 
     if not voice_client:
         await channel.connect()
         voice_client = ctx.voice_client
 
     try:
-        video = YouTube(url)
-        audio_url = video.streams.get_audio_only().url
+        # video = YouTube(url)
+        # audio_url = video.streams.get_audio_only().url
 
         # Добавляем URL песни в очередь
-        queue_of_music.append(url)
+        if "http" not in url:
+            # Если запрос не является ссылкой, выполняем поиск на YouTube
+            videosSearch = VideosSearch(url, limit=1)
+            videosResult = videosSearch.result()
+
+            if videosResult['result']:
+                video_url = videosResult['result'][0]['link']
+                queue_of_music.append(video_url)
+            else:
+                await ctx.send("Ничего не найдено.")
+        else:
+            queue_of_music.append(url)
 
         # Если текущий трек не проигрывается, начинаем воспроизведение
         if not voice_client.is_playing():
