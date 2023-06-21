@@ -19,7 +19,7 @@ My Music Bot is a Discord bot that allows users to play music in voice channels.
 5. Run the bot: `python main.py`
 
 ## Usage
-1. Invite the bot to your Discord server by visiting the following URL: [Invite Bot](https://discordapp.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&permissions=0)
+1. Invite the bot to your Discord server by visiting the following URL: [Invite Bot](https://discord.com/api/oauth2/authorize?client_id=1103331095891693651&permissions=274914609152&scope=bot)
 2. Join a voice channel in your server
 3. Use the following commands:
    - `!join`: Join the voice channel
