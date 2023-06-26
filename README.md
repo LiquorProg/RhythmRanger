@@ -14,8 +14,9 @@ My Music Bot is a Discord bot that allows users to play music in voice channels.
 ## Installation
 1. Clone the repository: `git clone https://github.com/LiquorProg/RhythmRanger.git`
 2. Install the required dependencies: `pip install -r requirements.txt`
-3. Update the `config.py` file with your Discord bot token and YouTube Data API key
-4. Run the bot: `python main.py`
+3. Create a `config.py` file with your Discord bot token.
+4. You will also need to download the FFmpeg player and place it in a folder with main.py
+5. Run the bot: `python main.py`
 
 ## Usage
 1. Invite the bot to your Discord server by visiting the following URL: [Invite Bot](https://discord.com/api/oauth2/authorize?client_id=1103331095891693651&permissions=274914609152&scope=bot)
